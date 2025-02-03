@@ -8,6 +8,9 @@ import gigRoutes from './routes/gigRoutes.js';
 import profileRoutes from './routes/profileRoutes.js';
 import User from "./models/user.js";
 
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const trebble = require('@treblle/express');
 const app = express();
 
 dotenv.config();
@@ -24,8 +27,10 @@ connect(process.env.MONGODB_URI).then(() => {
   }).catch(err => console.log("Error connecting MongoDB",err));
 
 // Middleware
+app.use(trebble());
 app.use(json());
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 
 
 // Routes

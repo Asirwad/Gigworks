@@ -6,11 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "set NODE_TLS_REJECT_UNAUTHORIZED=0 && nodemon app.js"
   },
   "keywords": [],
   "author": "Aadil Anthrolil Abu",
   "dependencies": {
+    "@treblle/express": "^1.0.2",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
