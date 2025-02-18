@@ -197,7 +197,6 @@ export const getInterestedGigs = async (req, res) => {
 
 export const getGigsWithoutEngagement = async (req, res) => {
   const { user_id, page = 1, limit = 15 } = req.headers;
-  console.log(user_id);
 
   try {
     const parsedPage = Math.max(1, parseInt(page, 10));
@@ -217,7 +216,7 @@ export const getGigsWithoutEngagement = async (req, res) => {
       .skip((parsedPage - 1) * parsedLimit)
       .limit(parsedLimit);
 
-    console.log(gigs.length);
+    // console.log(gigs.length);
     res.json({
       page: parsedPage,
       limit: parsedLimit,

@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 import { connect } from 'mongoose';
 import cors from 'cors';
 import express, { json } from 'express';
+import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import gigRoutes from './routes/gigRoutes.js';
@@ -26,6 +27,7 @@ connect(process.env.MONGODB_URI).then(() => {
 // Middleware
 app.use(json());
 app.use(cors());
+app.use(morgan('tiny'));
 
 
 // Routes
